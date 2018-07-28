@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reference &mdash; Persim 0.0.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Persim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Reference</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Persim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/reference.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-persim">
+<span id="reference"></span><h1>Reference<a class="headerlink" href="#module-persim" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="persim.PersImage">
+<em class="property">class </em><code class="descclassname">persim.</code><code class="descname">PersImage</code><span class="sig-paren">(</span><em>pixels=(20</em>, <em>20)</em>, <em>spread=None</em>, <em>specs=None</em>, <em>kernel_type='gaussian'</em>, <em>weighting_type='linear'</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a persistence image generator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>pixels</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pair of ints like (int, int)</span></dt>
+<dd><p class="first last">Tuple representing number of pixels in return image along x and y axis.</p>
+</dd>
+<dt><strong>spread</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Standard deviation of gaussian kernel</p>
+</dd>
+<dt><strong>specs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Parameters for shape of image with respect to diagram domain. This is used if you would like images to have a particular range.</p>
+</dd>
+<dt><strong>kernel_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or …</span></dt>
+<dd><p class="first last">TODO: Implement this feature.
+Determine which type of kernel used in the convolution, or pass in custom kernel. Currently only implements Gaussian.</p>
+</dd>
+<dt><strong>weighting_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or …</span></dt>
+<dd><p class="first last">TODO: Implement this feature.
+Determine which type of weighting function used, or pass in custom weighting function.
+Currently only implements linear weighting.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code>([deep])</td>
+<td>Get parameters for this estimator.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persim.PersImage.kernel" title="persim.PersImage.kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kernel</span></code></a>([spread])</td>
+<td>This will return whatever kind of kernel we want to use.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code>(**params)</td>
+<td>Set the parameters of this estimator.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persim.PersImage.show" title="persim.PersImage.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>(imgs)</td>
+<td>Visualize the persistence image</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persim.PersImage.to_landscape" title="persim.PersImage.to_landscape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_landscape</span></code></a>(diagram)</td>
+<td>Convert a diagram to a landscape (b,d) -&gt; (b, d-b)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persim.PersImage.transform" title="persim.PersImage.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(diagrams)</td>
+<td>Convert diagram or list of diagrams to a persistence image.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persim.PersImage.weighting" title="persim.PersImage.weighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weighting</span></code></a>([landscape])</td>
+<td>Define a weighting function,  for stability results to hold, the function must be 0 at y=0.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="persim.PersImage.kernel">
+<code class="descname">kernel</code><span class="sig-paren">(</span><em>spread=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.kernel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will return whatever kind of kernel we want to use.
+Must have signature (ndarray size NxM, ndarray size 1xM) -&gt; ndarray size Nx1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persim.PersImage.show">
+<code class="descname">show</code><span class="sig-paren">(</span><em>imgs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the persistence image</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="persim.PersImage.to_landscape">
+<em class="property">static </em><code class="descname">to_landscape</code><span class="sig-paren">(</span><em>diagram</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.to_landscape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.to_landscape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a diagram to a landscape
+(b,d) -&gt; (b, d-b)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persim.PersImage.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>diagrams</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert diagram or list of diagrams to a persistence image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>diagrams</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of or singleton diagram, list of pairs. [(birth, death)]</span></dt>
+<dd><p class="first last">Persistence diagrams to be converted to persistence images. It is assumed they are in (birth, death) format. Can input a list of diagrams or a single diagram.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persim.PersImage.weighting">
+<code class="descname">weighting</code><span class="sig-paren">(</span><em>landscape=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.weighting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.weighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define a weighting function, 
+for stability results to hold, the function must be 0 at y=0.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Nathaniel Saul.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.6',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

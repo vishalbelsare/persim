@@ -78,7 +78,10 @@ Reference
 
 .. toctree::
     :maxdepth: 2
-
+    
+    Persistence Images
+    Classification with persistence images
+    
 
 
 

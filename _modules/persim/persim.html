@@ -26,6 +26,7 @@
 
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 
@@ -45,10 +46,20 @@
         <div class="wy-side-nav-search">
           
 
+
+          <a href="https://scikit-tda.org">
+            <big>a scikit-tda project</big>
+          </a>
+
+
+
           
             <a href="../../index.html" class="icon icon-home"> Persim
           
 
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -76,8 +87,20 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption"><span class="caption-text">Background</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">Inspiration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Basic Usage.html">Basic Usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Classification with persistence images.html">Persistence Images in Classification</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Reference</a></li>
+</ul>
+
             
           
         </div>
@@ -119,7 +142,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="https://scikit-tda.org">Scikit-TDA</a>&raquo;<a href="../../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
@@ -139,7 +162,8 @@
            <div itemprop="articleBody">
             
   <h1>Source code for persim.persim</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">product</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">product</span>
 <span class="kn">import</span> <span class="nn">collections</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -148,10 +172,10 @@
 <span class="kn">import</span> <span class="nn">scipy.spatial</span> <span class="k">as</span> <span class="nn">spatial</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="k">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="k">import</span> <span class="n">TransformerMixin</span>
 
 
-<div class="viewcode-block" id="PersImage"><a class="viewcode-back" href="../../reference.html#persim.PersImage">[docs]</a><span class="k">class</span> <span class="nc">PersImage</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+<div class="viewcode-block" id="PersImage"><a class="viewcode-back" href="../../reference.html#persim.PersImage">[docs]</a><span class="k">class</span> <span class="nc">PersImage</span><span class="p">(</span><span class="n">TransformerMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Initialize a persistence image generator.</span>
 
 <span class="sd">    Parameters</span>
@@ -210,7 +234,7 @@
         <span class="k">if</span> <span class="n">singular</span><span class="p">:</span>
             <span class="n">diagrams</span> <span class="o">=</span> <span class="p">[</span><span class="n">diagrams</span><span class="p">]</span>
 
-        <span class="n">dgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">diagram</span><span class="p">)</span> <span class="k">for</span> <span class="n">diagram</span> <span class="ow">in</span> <span class="n">diagrams</span><span class="p">]</span>
+        <span class="n">dgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">diagram</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="k">for</span> <span class="n">diagram</span> <span class="ow">in</span> <span class="n">diagrams</span><span class="p">]</span>
         <span class="n">landscapes</span> <span class="o">=</span> <span class="p">[</span><span class="n">PersImage</span><span class="o">.</span><span class="n">to_landscape</span><span class="p">(</span><span class="n">dg</span><span class="p">)</span> <span class="k">for</span> <span class="n">dg</span> <span class="ow">in</span> <span class="n">dgs</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">specs</span><span class="p">:</span>
@@ -314,16 +338,20 @@
 
         <span class="k">return</span> <span class="n">diagram</span></div>
 
-<div class="viewcode-block" id="PersImage.show"><a class="viewcode-back" href="../../reference.html#persim.PersImage.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgs</span><span class="p">):</span>
+<div class="viewcode-block" id="PersImage.show"><a class="viewcode-back" href="../../reference.html#persim.PersImage.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Visualize the persistence image</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span> <span class="ow">or</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span><span class="p">:</span>
             <span class="n">imgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">imgs</span><span class="p">]</span>
 
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">imgs</span><span class="p">):</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;plasma&quot;</span><span class="p">))</span></div></div>
-            <span class="c1"># plt.show()</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;plasma&quot;</span><span class="p">))</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span></div></div>
+
 </pre></div>
 
            </div>

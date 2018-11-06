@@ -5,21 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-124965309-3']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reference &mdash; Persim 0.0.7 documentation</title>
+  <title>API Reference &mdash; Persim 0.0.7 documentation</title>
   
 
   
@@ -37,13 +26,27 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Persistence Images in Classification" href="Classification with persistence images.html" /> 
+    <link rel="prev" title="Persim" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-124965309-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+    <!-- End Google Analytics -->
+
+
+
 
 </head>
 
@@ -103,18 +106,8 @@
               
             
             
-              <p class="caption"><span class="caption-text">Background</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">Inspiration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Basic Usage.html">Basic Usage</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Classification with persistence images.html">Persistence Images in Classification</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Reference</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
 </ul>
 
             
@@ -160,7 +153,7 @@
     
       <li><a href="https://scikit-tda.org">Scikit-TDA</a>&raquo;<a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Reference</li>
+      <li>API Reference</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -199,10 +192,116 @@
 }
 </style>
 <div class="section" id="module-persim">
-<span id="reference"></span><h1>Reference<a class="headerlink" href="#module-persim" title="Permalink to this headline">¶</a></h1>
+<span id="api-reference"></span><h1>API Reference<a class="headerlink" href="#module-persim" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="persim.bottleneck">
+<code class="descclassname">persim.</code><code class="descname">bottleneck</code><span class="sig-paren">(</span><em>dgm1</em>, <em>dgm2</em>, <em>matching=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/bottleneck.html#bottleneck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.bottleneck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the Bottleneck distance matching between persistence diagrams.
+Assumes first two columns of S and T are the coordinates of the persistence
+points, but allows for other coordinate columns (which are ignored in
+diagonal matching)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>dgm1: Mx(&gt;=2)</strong></dt>
+<dd><p class="first last">array of birth/death pairs for PD 1</p>
+</dd>
+<dt><strong>dgm2: Nx(&gt;=2)</strong></dt>
+<dd><p class="first last">array of birth/death paris for PD 2</p>
+</dd>
+<dt><strong>matching: bool, default False</strong></dt>
+<dd><p class="first last">if True, return matching information</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>d: float</strong></dt>
+<dd><p class="first last">bottleneck distance between dgm1 and dgm2</p>
+</dd>
+<dt><strong>matching: tuples of matched indices</strong></dt>
+<dd><p class="first last">if input <cite>matching=True</cite>, then return matching</p>
+</dd>
+<dt><strong>D: (N+M)x(N+M) cross-similarity matrix</strong></dt>
+<dd><p class="first last">if input <cite>matching=True</cite>, then return D</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="persim.sliced_wasserstein">
+<code class="descclassname">persim.</code><code class="descname">sliced_wasserstein</code><span class="sig-paren">(</span><em>PD1</em>, <em>PD2</em>, <em>M=50</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/sliced_wasserstein.html#sliced_wasserstein"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.sliced_wasserstein" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of Sliced Wasserstein distance as described in 
+Sliced Wasserstein Kernel for Persistence Diagrams by Mathieu Carriere, Marco Cuturi, Steve Oudot (<a class="reference external" href="https://arxiv.org/abs/1706.03358">https://arxiv.org/abs/1706.03358</a>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>PD1: np.array size (m,2)</strong></dt>
+<dd><p class="first last">Persistence diagram</p>
+</dd>
+<dt><strong>PD2: np.array size (n,2)</strong></dt>
+<dd><p class="first last">Persistence diagram</p>
+</dd>
+<dt><strong>M: int, default is 50</strong></dt>
+<dd><p class="first last">Iterations to run approximation.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>sw: float</strong></dt>
+<dd><p class="first last">Sliced Wasserstein distance between PD1 and PD2</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="persim.heat">
+<code class="descclassname">persim.</code><code class="descname">heat</code><span class="sig-paren">(</span><em>dgm1</em>, <em>dgm2</em>, <em>sigma=0.4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/heat.html#heat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.heat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the pseudo-metric between two diagrams based on the continuous
+heat kernel as described in “A Stable Multi-Scale Kernel for Topological Machine Learning” by Jan Reininghaus, Stefan Huber, Ulrich Bauer, and Roland Kwitt (CVPR 2015)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>dgm1: np.array (m,2)</strong></dt>
+<dd><p class="first last">A persistence diagram</p>
+</dd>
+<dt><strong>dgm2: np.array (n,2)</strong></dt>
+<dd><p class="first last">A persistence diagram</p>
+</dd>
+<dt><strong>sigma: float</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>dist: float</strong></dt>
+<dd><p class="first last">heat kernel distance between dgm1 and dgm2</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="class">
 <dt id="persim.PersImage">
-<em class="property">class </em><code class="descclassname">persim.</code><code class="descname">PersImage</code><span class="sig-paren">(</span><em>pixels=(20</em>, <em>20)</em>, <em>spread=None</em>, <em>specs=None</em>, <em>kernel_type='gaussian'</em>, <em>weighting_type='linear'</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">persim.</code><code class="descname">PersImage</code><span class="sig-paren">(</span><em>pixels=(20</em>, <em>20)</em>, <em>spread=None</em>, <em>specs=None</em>, <em>kernel_type='gaussian'</em>, <em>weighting_type='linear'</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/images.html#PersImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a persistence image generator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -233,28 +332,8 @@ Currently only implements linear weighting.</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="persim.PersImage.kernel">
-<code class="descname">kernel</code><span class="sig-paren">(</span><em>spread=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.kernel" title="Permalink to this definition">¶</a></dt>
-<dd><p>This will return whatever kind of kernel we want to use.
-Must have signature (ndarray size NxM, ndarray size 1xM) -&gt; ndarray size Nx1</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="persim.PersImage.show">
-<code class="descname">show</code><span class="sig-paren">(</span><em>imgs</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.show" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the persistence image</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="persim.PersImage.to_landscape">
-<em class="property">static </em><code class="descname">to_landscape</code><span class="sig-paren">(</span><em>diagram</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.to_landscape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.to_landscape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a diagram to a landscape
-(b,d) -&gt; (b, d-b)</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="persim.PersImage.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>diagrams</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.transform" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transform</code><span class="sig-paren">(</span><em>diagrams</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/images.html#PersImage.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert diagram or list of diagrams to a persistence image.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -271,13 +350,6 @@ Must have signature (ndarray size NxM, ndarray size 1xM) -&gt; ndarray size Nx1<
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="persim.PersImage.weighting">
-<code class="descname">weighting</code><span class="sig-paren">(</span><em>landscape=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.weighting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.weighting" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define a weighting function, 
-for stability results to hold, the function must be 0 at y=0.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -291,7 +363,7 @@ for stability results to hold, the function must be 0 at y=0.</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="Classification with persistence images.html" class="btn btn-neutral" title="Persistence Images in Classification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Persim" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -300,7 +372,7 @@ for stability results to hold, the function must be 0 at y=0.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Nathaniel Saul.
+        &copy; Copyright 2018, Nathaniel Saul
 
     </p>
   </div>

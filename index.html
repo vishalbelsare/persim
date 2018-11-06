@@ -5,18 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-124965309-3']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Persim &mdash; Persim 0.0.7 documentation</title>
@@ -37,13 +26,27 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Inspiration" href="about.html" /> 
+    <link rel="next" title="Persistence Images" href="Persistence Images.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-124965309-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+    <!-- End Google Analytics -->
+
+
+
 
 </head>
 
@@ -103,18 +106,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Background</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">Inspiration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Basic Usage.html">Basic Usage</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="Persistence Images.html">Persistence Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distances.html">Distances on Persistence Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Classification with persistence images.html">Persistence Images in Classification</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
 </ul>
 
             
@@ -201,47 +200,40 @@
 <p><a class="reference external" href="https://badge.fury.io/py/persim"><img alt="PyPI version" src="https://badge.fury.io/py/persim.svg" /></a> <a class="reference external" href="https://travis-ci.org/scikit-tda/persim"><img alt="Build Status" src="https://travis-ci.org/scikit-tda/persim.svg?branch=master" /></a> <a class="reference external" href="https://codecov.io/gh/scikit-tda/persim"><img alt="Codecov" src="https://codecov.io/gh/scikit-tda/persim/branch/master/graph/badge.svg" /></a> <a class="reference external" href="https://opensource.org/licenses/MIT)"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a></p>
 <div class="section" id="persim">
 <h1>Persim<a class="headerlink" href="#persim" title="Permalink to this headline">¶</a></h1>
-<p>Persim is a Python implementation of Persistence Images, as first introduced in <a class="reference external" href="https://arxiv.org/abs/1507.06217">this paper</a>.</p>
-<p>It is designed to interface with <a class="reference external" href="https://github.com/sauln/ripser">Ripser</a>, though works fine for any persistence diagrams.</p>
+<p>Persim is a Python package for many tools used in analyzing Persistence Diagrams.  It currently houses implementations of</p>
+<ul class="simple">
+<li>Persistence Images</li>
+<li>Bottleneck distance</li>
+<li>Sliced Wasserstein Kernel</li>
+<li>Heat Kernel</li>
+</ul>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>Currently, the only option is to install the library from source:</p>
+<p>The latest version of persim can be found on Pypi and installed with pip:</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>pip install persim
 </pre></div>
 </div>
 </div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>First, construct a diagram. In this example, we will use <a class="reference external" href="https://github.com/sauln/ripser">Ripser</a>.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">ripser</span> <span class="kn">import</span> <span class="n">Rips</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">rips</span> <span class="o">=</span> <span class="n">Rips</span><span class="p">()</span>
-<span class="n">dgm</span> <span class="o">=</span> <span class="n">rips</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">diagram</span> <span class="o">=</span> <span class="n">dgm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Just diagram for H1</span>
-</pre></div>
-</div>
-<img alt="_images/data-and-pd.png" src="_images/data-and-pd.png" />
-<p>Then from this diagram, we construct the persistence image</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">persim</span> <span class="kn">import</span> <span class="n">PersImage</span>
-
-<span class="n">pim</span> <span class="o">=</span> <span class="n">PersImage</span><span class="p">(</span><span class="n">diagram</span><span class="p">)</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">pim</span><span class="o">.</span><span class="n">transform</span><span class="p">()</span>
-<span class="n">pim</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-</pre></div>
-</div>
-<img alt="_images/pers-im-h1.png" src="_images/pers-im-h1.png" />
+<div class="section" id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<p>We welcome contributions of all shapes and sizes. There are lots of opportunities for potential projects, so please get in touch if you would like to help out. Everything from an implementation of your favorite distance, notebooks, examples, and documentation are all equally valuable so please don’t feel you can’t contribute.</p>
+<p>To contribute please fork the project make your changes and submit a pull request. We will do our best to work through any issues with you and get your code merged into the main branch.</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Background</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">Inspiration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Basic Usage.html">Basic Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Basic Usage.html#Generate-persistence-diagram-using-Ripser">Generate persistence diagram using Ripser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic Usage.html#Persistence-Images-with-various-pixels">Persistence Images with various pixels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basic Usage.html#Various-levels-of-spread">Various levels of spread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Persistence Images.html">Persistence Images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Persistence Images.html#Generate-persistence-diagram-using-Ripser">Generate persistence diagram using Ripser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Persistence Images.html#Persistence-Images-with-various-pixels">Persistence Images with various pixels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Persistence Images.html#Various-levels-of-spread">Various levels of spread</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="distances.html">Distances on Persistence Diagrams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distances.html#Generate-H_1-diagrams-for-each-of-the-data-sets">Generate <span class="math notranslate nohighlight">\(H_1\)</span> diagrams for each of the data sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distances.html#Compute-and-visualize-Bottleneck-distance">Compute and visualize Bottleneck distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distances.html#Sliced-Wasserstein-distance">Sliced Wasserstein distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distances.html#Heat-Kernel-Distance">Heat Kernel Distance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -257,97 +249,6 @@
 </li>
 </ul>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section" id="module-persim">
-<span id="reference"></span><h1>Reference<a class="headerlink" href="#module-persim" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="persim.PersImage">
-<em class="property">class </em><code class="descclassname">persim.</code><code class="descname">PersImage</code><span class="sig-paren">(</span><em>pixels=(20</em>, <em>20)</em>, <em>spread=None</em>, <em>specs=None</em>, <em>kernel_type='gaussian'</em>, <em>weighting_type='linear'</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a persistence image generator.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>pixels</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pair of ints like (int, int)</span></dt>
-<dd><p class="first last">Tuple representing number of pixels in return image along x and y axis.</p>
-</dd>
-<dt><strong>spread</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd><p class="first last">Standard deviation of gaussian kernel</p>
-</dd>
-<dt><strong>specs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
-<dd><p class="first last">Parameters for shape of image with respect to diagram domain. This is used if you would like images to have a particular range.</p>
-</dd>
-<dt><strong>kernel_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or …</span></dt>
-<dd><p class="first last">TODO: Implement this feature.
-Determine which type of kernel used in the convolution, or pass in custom kernel. Currently only implements Gaussian.</p>
-</dd>
-<dt><strong>weighting_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or …</span></dt>
-<dd><p class="first last">TODO: Implement this feature.
-Determine which type of weighting function used, or pass in custom weighting function.
-Currently only implements linear weighting.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="persim.PersImage.kernel">
-<code class="descname">kernel</code><span class="sig-paren">(</span><em>spread=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.kernel" title="Permalink to this definition">¶</a></dt>
-<dd><p>This will return whatever kind of kernel we want to use.
-Must have signature (ndarray size NxM, ndarray size 1xM) -&gt; ndarray size Nx1</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="persim.PersImage.show">
-<code class="descname">show</code><span class="sig-paren">(</span><em>imgs</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.show" title="Permalink to this definition">¶</a></dt>
-<dd><p>Visualize the persistence image</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="persim.PersImage.to_landscape">
-<em class="property">static </em><code class="descname">to_landscape</code><span class="sig-paren">(</span><em>diagram</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.to_landscape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.to_landscape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a diagram to a landscape
-(b,d) -&gt; (b, d-b)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="persim.PersImage.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>diagrams</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert diagram or list of diagrams to a persistence image.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>diagrams</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of or singleton diagram, list of pairs. [(birth, death)]</span></dt>
-<dd><p class="first last">Persistence diagrams to be converted to persistence images. It is assumed they are in (birth, death) format. Can input a list of diagrams or a single diagram.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="persim.PersImage.weighting">
-<code class="descname">weighting</code><span class="sig-paren">(</span><em>landscape=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/persim.html#PersImage.weighting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.weighting" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define a weighting function, 
-for stability results to hold, the function must be 0 at y=0.</p>
-</dd></dl>
-
-</dd></dl>
-
-<div class="toctree-wrapper compound">
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -367,7 +268,7 @@ for stability results to hold, the function must be 0 at y=0.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="about.html" class="btn btn-neutral float-right" title="Inspiration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Persistence Images.html" class="btn btn-neutral float-right" title="Persistence Images" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -377,7 +278,7 @@ for stability results to hold, the function must be 0 at y=0.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Nathaniel Saul.
+        &copy; Copyright 2018, Nathaniel Saul
 
     </p>
   </div>

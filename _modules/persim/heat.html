@@ -176,9 +176,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for persim.heat</h1><div class="highlight"><pre>
-<span></span>
-
-<span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implementation of the &quot;multiscale heat kernel&quot; (CVPR 2015), </span>
 
 <span class="sd">    Author: Chris Tralie</span>
@@ -200,8 +198,10 @@
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">I2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
             <span class="n">q</span> <span class="o">=</span> <span class="n">I2</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
             <span class="n">qc</span> <span class="o">=</span> <span class="n">I2</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">kSigma</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">p</span><span class="o">-</span><span class="n">q</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">sigma</span><span class="p">))</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">p</span><span class="o">-</span><span class="n">qc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">sigma</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">kSigma</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span>
+            <span class="n">kSigma</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">q</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">))</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+                <span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">qc</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">)</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">kSigma</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="heat"><a class="viewcode-back" href="../../reference.html#persim.heat">[docs]</a><span class="k">def</span> <span class="nf">heat</span><span class="p">(</span><span class="n">dgm1</span><span class="p">,</span> <span class="n">dgm2</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
@@ -225,7 +225,11 @@
 <span class="sd">        heat kernel distance between dgm1 and dgm2</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">evalHeatKernel</span><span class="p">(</span><span class="n">dgm1</span><span class="p">,</span> <span class="n">dgm1</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">+</span> <span class="n">evalHeatKernel</span><span class="p">(</span><span class="n">dgm2</span><span class="p">,</span> <span class="n">dgm2</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">evalHeatKernel</span><span class="p">(</span><span class="n">dgm1</span><span class="p">,</span> <span class="n">dgm2</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span></div>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="n">evalHeatKernel</span><span class="p">(</span><span class="n">dgm1</span><span class="p">,</span> <span class="n">dgm1</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">evalHeatKernel</span><span class="p">(</span><span class="n">dgm2</span><span class="p">,</span> <span class="n">dgm2</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+        <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">evalHeatKernel</span><span class="p">(</span><span class="n">dgm1</span><span class="p">,</span> <span class="n">dgm2</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+    <span class="p">)</span></div>
 </pre></div>
 
            </div>

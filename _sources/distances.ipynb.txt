@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Distances on Persistence Diagrams\n",
+    "# Distances\n",
     "\n",
     "For this example notebook, we'll need to install Ripser.py to create the persistence diagrams:\n",
     "```\n",

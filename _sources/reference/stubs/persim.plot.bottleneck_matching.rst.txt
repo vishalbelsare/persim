@@ -1,0 +1,6 @@
+persim.plot.bottleneck\_matching
+================================
+
+.. currentmodule:: persim.plot
+
+.. autofunction:: bottleneck_matching

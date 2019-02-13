@@ -1,0 +1,6 @@
+persim.plot.wasserstein\_matching
+=================================
+
+.. currentmodule:: persim.plot
+
+.. autofunction:: wasserstein_matching

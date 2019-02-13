@@ -1,306 +1,63 @@
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>API Reference &mdash; Persim 0.0.7 documentation</title>
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>API Reference &#8212; Persim 0.0.7 documentation</title>
+    <link rel="stylesheet" href="_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Persistence Images in Classification" href="Classification with persistence images.html" />
-    <link rel="prev" title="Distances" href="distances.html" /> 
+    <link rel="next" title="Persistence Images in Classification" href="notebooks/Classification with persistence images.html" />
+    <link rel="prev" title="Distances" href="notebooks/distances.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <link rel="stylesheet" href="_static/custom_style.css" type="text/css" />
+  </head><body>
+    <header id="pageheader">
+      <h1>
+        <a href="index.html ">
+          Persim 0.0.7 documentation
+        </a>
+        <a id="headermeta" href="https://scikit-tda.org">
+            a scikit-tda project 
+        </a>
+      </h1> 
+  </header>
+  <div class="related top">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="notebooks/distances.html" title="Previous document">Distances</a>
+        </li>
+        <li>
+          <a href="notebooks/Classification with persistence images.html" title="Next document">Persistence Images in Classification</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="index.html">Persim</a></li> 
+    </ul>
+  </nav>
+  </div>  
 
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
-  <!-- Google Analytics -->
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-124965309-3', 'auto');
-    ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
-
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          <a href="https://scikit-tda.org">
-    <big>a scikit-tda project</big>
-</a>
-
-          
-            <a href="index.html" class="icon icon-home"> Persim
-          
-
-          
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.0.7
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Persistence Images.html">Persistence Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="distances.html">Distances</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Classification with persistence images.html">Persistence Images in Classification</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Persim</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="https://scikit-tda.org">Scikit-TDA</a>&raquo;<a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>API Reference</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/reference.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast + .nbinput {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-</style>
-<div class="section" id="module-persim">
+  <div class="section" id="module-persim">
 <span id="api-reference"></span><h1>API Reference<a class="headerlink" href="#module-persim" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="persim.bottleneck">
-<code class="descclassname">persim.</code><code class="descname">bottleneck</code><span class="sig-paren">(</span><em>dgm1</em>, <em>dgm2</em>, <em>matching=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/bottleneck.html#bottleneck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.bottleneck" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform the Bottleneck distance matching between persistence diagrams.
-Assumes first two columns of S and T are the coordinates of the persistence
-points, but allows for other coordinate columns (which are ignored in
-diagonal matching)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>dgm1: Mx(&gt;=2)</strong></dt>
-<dd><p class="first last">array of birth/death pairs for PD 1</p>
-</dd>
-<dt><strong>dgm2: Nx(&gt;=2)</strong></dt>
-<dd><p class="first last">array of birth/death paris for PD 2</p>
-</dd>
-<dt><strong>matching: bool, default False</strong></dt>
-<dd><p class="first last">if True, return matching information</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>d: float</strong></dt>
-<dd><p class="first last">bottleneck distance between dgm1 and dgm2</p>
-</dd>
-<dt><strong>matching: tuples of matched indices</strong></dt>
-<dd><p class="first last">if input <cite>matching=True</cite>, then return matching</p>
-</dd>
-<dt><strong>D: (N+M)x(N+M) cross-similarity matrix</strong></dt>
-<dd><p class="first last">if input <cite>matching=True</cite>, then return D</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="persim.sliced_wasserstein">
-<code class="descclassname">persim.</code><code class="descname">sliced_wasserstein</code><span class="sig-paren">(</span><em>PD1</em>, <em>PD2</em>, <em>M=50</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/sliced_wasserstein.html#sliced_wasserstein"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.sliced_wasserstein" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implementation of Sliced Wasserstein distance as described in 
-Sliced Wasserstein Kernel for Persistence Diagrams by Mathieu Carriere, Marco Cuturi, Steve Oudot (<a class="reference external" href="https://arxiv.org/abs/1706.03358">https://arxiv.org/abs/1706.03358</a>)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>PD1: np.array size (m,2)</strong></dt>
-<dd><p class="first last">Persistence diagram</p>
-</dd>
-<dt><strong>PD2: np.array size (n,2)</strong></dt>
-<dd><p class="first last">Persistence diagram</p>
-</dd>
-<dt><strong>M: int, default is 50</strong></dt>
-<dd><p class="first last">Iterations to run approximation.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>sw: float</strong></dt>
-<dd><p class="first last">Sliced Wasserstein distance between PD1 and PD2</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="persim.heat">
-<code class="descclassname">persim.</code><code class="descname">heat</code><span class="sig-paren">(</span><em>dgm1</em>, <em>dgm2</em>, <em>sigma=0.4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/heat.html#heat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.heat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the pseudo-metric between two diagrams based on the continuous
-heat kernel as described in “A Stable Multi-Scale Kernel for Topological Machine Learning” by Jan Reininghaus, Stefan Huber, Ulrich Bauer, and Roland Kwitt (CVPR 2015)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>dgm1: np.array (m,2)</strong></dt>
-<dd><p class="first last">A persistence diagram</p>
-</dd>
-<dt><strong>dgm2: np.array (n,2)</strong></dt>
-<dd><p class="first last">A persistence diagram</p>
-</dd>
-<dt><strong>sigma: float</strong></dt>
-<dd><p class="first last">Heat diffusion parameter (larger sigma makes blurrier)</p>
-</dd>
-<dt><strong>Returns</strong></dt>
-<dd></dd>
-<dt><strong>——–</strong></dt>
-<dd></dd>
-<dt><strong>dist: float</strong></dt>
-<dd><p class="first last">heat kernel distance between dgm1 and dgm2</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="class">
 <dt id="persim.PersImage">
 <em class="property">class </em><code class="descclassname">persim.</code><code class="descname">PersImage</code><span class="sig-paren">(</span><em>pixels=(20</em>, <em>20)</em>, <em>spread=None</em>, <em>specs=None</em>, <em>kernel_type='gaussian'</em>, <em>weighting_type='linear'</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/images.html#PersImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage" title="Permalink to this definition">¶</a></dt>
@@ -309,36 +66,70 @@ heat kernel as described in “A Stable Multi-Scale Kernel for Topological Machi
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>pixels</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pair of ints like (int, int)</span></dt>
-<dd><p class="first last">Tuple representing number of pixels in return image along x and y axis.</p>
-</dd>
-<dt><strong>spread</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd><p class="first last">Standard deviation of gaussian kernel</p>
-</dd>
-<dt><strong>specs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
-<dd><p class="first">Parameters for shape of image with respect to diagram domain. This is used if you would like images to have a particular range. Shaped like</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pixels</strong> (<em>pair of ints like</em><em> (</em><em>int</em><em>, </em><em>int</em><em>)</em>) – Tuple representing number of pixels in return image along x and y axis.</li>
+<li><strong>spread</strong> (<em>float</em>) – Standard deviation of gaussian kernel</li>
+<li><strong>specs</strong> (<em>dict</em>) – <p>Parameters for shape of image with respect to diagram domain. This is used if you would like images to have a particular range. Shaped like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;maxBD&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="s2">&quot;minBD&quot;</span><span class="p">:</span> <span class="nb">float</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</dd>
-<dt><strong>kernel_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or …</span></dt>
-<dd><p class="first last">TODO: Implement this feature.
-Determine which type of kernel used in the convolution, or pass in custom kernel. Currently only implements Gaussian.</p>
-</dd>
-<dt><strong>weighting_type</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string or …</span></dt>
-<dd><p class="first last">TODO: Implement this feature.
+</li>
+<li><strong>kernel_type</strong> (<em>string</em><em> or </em><em>..</em>) – TODO: Implement this feature.
+Determine which type of kernel used in the convolution, or pass in custom kernel. Currently only implements Gaussian.</li>
+<li><strong>weighting_type</strong> (<em>string</em><em> or </em><em>..</em>) – TODO: Implement this feature.
 Determine which type of weighting function used, or pass in custom weighting function.
-Currently only implements linear weighting.</p>
-</dd>
-</dl>
+Currently only implements linear weighting.</li>
+</ul>
 </td>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="persim.PersImage.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>X</em>, <em>y=None</em>, <em>**fit_params</em><span class="sig-paren">)</span><a class="headerlink" href="#persim.PersImage.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to X and y with optional parameters fit_params
+and returns a transformed version of X.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X</strong> (<em>numpy array of shape</em><em> [</em><em>n_samples</em><em>, </em><em>n_features</em><em>]</em>) – Training set.</li>
+<li><strong>y</strong> (<em>numpy array of shape</em><em> [</em><em>n_samples</em><em>]</em>) – Target values.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>X_new</strong> (<em>numpy array of shape [n_samples, n_features_new]</em>) – Transformed array.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persim.PersImage.kernel">
+<code class="descname">kernel</code><span class="sig-paren">(</span><em>spread=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/images.html#PersImage.kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.kernel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will return whatever kind of kernel we want to use.
+Must have signature (ndarray size NxM, ndarray size 1xM) -&gt; ndarray size Nx1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persim.PersImage.show">
+<code class="descname">show</code><span class="sig-paren">(</span><em>imgs</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/images.html#PersImage.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the persistence image</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="persim.PersImage.to_landscape">
+<em class="property">static </em><code class="descname">to_landscape</code><span class="sig-paren">(</span><em>diagram</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/images.html#PersImage.to_landscape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.to_landscape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a diagram to a landscape
+(b,d) -&gt; (b, d-b)</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="persim.PersImage.transform">
 <code class="descname">transform</code><span class="sig-paren">(</span><em>diagrams</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/images.html#PersImage.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.transform" title="Permalink to this definition">¶</a></dt>
@@ -347,15 +138,17 @@ Currently only implements linear weighting.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>diagrams</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of or singleton diagram, list of pairs. [(birth, death)]</span></dt>
-<dd><p class="first last">Persistence diagrams to be converted to persistence images. It is assumed they are in (birth, death) format. Can input a list of diagrams or a single diagram.</p>
-</dd>
-</dl>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>diagrams</strong> (<em>list of</em><em> or </em><em>singleton diagram</em><em>, </em><em>list of pairs.</em><em> [</em><em>(</em><em>birth</em><em>, </em><em>death</em><em>)</em><em>]</em>) – Persistence diagrams to be converted to persistence images. It is assumed they are in (birth, death) format. Can input a list of diagrams or a single diagram.</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persim.PersImage.weighting">
+<code class="descname">weighting</code><span class="sig-paren">(</span><em>landscape=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/persim/images.html#PersImage.weighting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#persim.PersImage.weighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define a weighting function,
+for stability results to hold, the function must be 0 at y=0.</p>
 </dd></dl>
 
 </dd></dl>
@@ -363,61 +156,80 @@ Currently only implements linear weighting.</p>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="Classification with persistence images.html" class="btn btn-neutral float-right" title="Persistence Images in Classification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="distances.html" class="btn btn-neutral" title="Distances" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Nathaniel Saul
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Persistence Images.html">Persistence Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/distances.html">Distances</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Classification with persistence images.html">Persistence Images in Classification</a></li>
+</ul>
 
-    </section>
-
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reference.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<form class="search" action="search.html" method="get">
+  <input type="text" name="q"
+   placeholder="type to search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="notebooks/distances.html" title="Previous document">Distances</a>
+        </li>
+        <li>
+          <a href="notebooks/Classification with persistence images.html" title="Next document">Persistence Images in Classification</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="index.html">Persim</a></li> 
+    </ul>
+  </nav>
   </div>
+  <footer id="pagefooter">&copy; 2019, Nathaniel Saul.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a>
+      1.8.1
+        with the <a href="http://github.com/irskep/sphinx-better-theme">
+          better</a> theme.
+
+  </footer>
+
   
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-
+      ga('create', 'UA-124965309-3', '');
+      ga('send', 'pageview');
+    </script>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

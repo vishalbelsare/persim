@@ -1,9 +1,0 @@
-API Reference
---------------
-
-.. automodule:: persim
-    :members: bottleneck, sliced_wasserstein, heat, plot_diagrams
-
-
-.. autoclass:: PersImage
-    :members: transform

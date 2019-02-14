@@ -16,7 +16,7 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Reference" href="../reference.html" />
+    <link rel="next" title="API Reference" href="../reference/index.html" />
     <link rel="prev" title="Persistence Images" href="Persistence Images.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link rel="stylesheet" href="../_static/custom_style.css" type="text/css" />
@@ -39,7 +39,7 @@
           <a href="Persistence Images.html" title="Previous document">Persistence Images</a>
         </li>
         <li>
-          <a href="../reference.html" title="Next document">API Reference</a>
+          <a href="../reference/index.html" title="Next document">API Reference</a>
           &rarr;
         </li>
     </ul>
@@ -235,10 +235,10 @@ persistence diagrams:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">persim</span>
 <span class="kn">import</span> <span class="nn">persim.plot</span>
+<span class="kn">import</span> <span class="nn">tadasets</span>
 <span class="kn">import</span> <span class="nn">ripser</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </pre></div>
@@ -250,8 +250,8 @@ persistence diagrams:</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">data_noisy</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">noise</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span></span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">tadasets</span><span class="o">.</span><span class="n">dsphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">data_noisy</span> <span class="o">=</span> <span class="n">tadasets</span><span class="o">.</span><span class="n">dsphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -263,16 +263,9 @@ persistence diagrams:</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_clean</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_clean</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;clean data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_noisy</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_noisy</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;noisy data&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[3]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.collections.PathCollection at 0x119767668&gt;
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -280,7 +273,7 @@ persistence diagrams:</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_distances_3_1.png" src="../_images/notebooks_distances_3_1.png" />
+<img alt="../_images/notebooks_distances_3_0.png" src="../_images/notebooks_distances_3_0.png" />
 </div>
 </div>
 <div class="section" id="Generate-H_1-diagrams-for-each-of-the-data-sets">
@@ -365,7 +358,7 @@ if that is all you’re interested in.</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.2060278281569481
+<span></span>0.2622718811035156
 </pre></div>
 </div>
 </div>
@@ -376,12 +369,12 @@ if that is all you’re interested in.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dgm1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">]</span>
+    <span class="p">[</span><span class="mf">0.53</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">]</span>
 <span class="p">])</span>
 <span class="n">dgm2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span>
-<span class="c1">#     [0.7,0.8]</span>
+    <span class="p">[</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.9</span><span class="p">]</span>
 <span class="p">])</span>
 
 <span class="n">d</span><span class="p">,</span> <span class="p">(</span><span class="n">matching</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">=</span> <span class="n">persim</span><span class="o">.</span><span class="n">bottleneck</span><span class="p">(</span>
@@ -391,17 +384,8 @@ if that is all you’re interested in.</p>
 <span class="p">)</span>
 
 <span class="n">persim</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bottleneck_matching</span><span class="p">(</span><span class="n">dgm1</span><span class="p">,</span> <span class="n">dgm2</span><span class="p">,</span> <span class="n">matching</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Clean $H_1$&#39;</span><span class="p">,</span> <span class="s1">&#39;Noisy $H_1$&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Distance {d:.3f}&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Out[9]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Text(0.5, 1.0, &#39;Distance 0.100&#39;)
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distance {:.3f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -409,7 +393,7 @@ if that is all you’re interested in.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_distances_12_1.png" src="../_images/notebooks_distances_12_1.png" />
+<img alt="../_images/notebooks_distances_12_0.png" src="../_images/notebooks_distances_12_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -428,9 +412,10 @@ if that is all you’re interested in.</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>([(0, 0), (1, 1), (2, 2)], array([[0.1 , 0.25, 0.1 ],
-        [0.1 , 0.1 , 0.25],
-        [0.3 , 0.  , 0.  ]]))
+<span></span>([(0, 0), (1, 1), (2, 2), (3, 3)], array([[0.1  , 0.27 , 0.235, 0.27 ],
+        [0.05 , 0.2  , 0.27 , 0.225],
+        [0.275, 0.27 , 0.   , 0.   ],
+        [0.27 , 0.05 , 0.   , 0.   ]]))
 </pre></div>
 </div>
 </div>
@@ -461,7 +446,7 @@ theta with the axis x.</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.9445603424817036
+<span></span>0.2730895085010975
 </pre></div>
 </div>
 </div>
@@ -486,7 +471,7 @@ theta with the axis x.</p>
 <span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ms</span><span class="p">,</span> <span class="n">ds</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;M Iterations&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Approximate Distance&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Relationship between M and distance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Relationship between iterations and distance&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -518,7 +503,7 @@ theta with the axis x.</p>
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.31222031697773356
+<span></span>0.05670429048846014
 </pre></div>
 </div>
 </div>
@@ -555,14 +540,120 @@ theta with the axis x.</p>
 <img alt="../_images/notebooks_distances_23_0.png" src="../_images/notebooks_distances_23_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="Various-levels-of-noise">
+<h2>Various levels of noise<a class="headerlink" href="#Various-levels-of-noise" title="Permalink to this headline">¶</a></h2>
+<p>In this example, we will simulate various levels of noise and compute
+the distances from the clean circle</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">tadasets</span><span class="o">.</span><span class="n">dsphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">dgm_clean</span> <span class="o">=</span> <span class="n">ripser</span><span class="o">.</span><span class="n">ripser</span><span class="p">(</span><span class="n">data_clean</span><span class="p">)[</span><span class="s1">&#39;dgms&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dists</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">noise_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">dists_bottleneck</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">dists_sliced</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">noise_levels</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">samples</span><span class="p">):</span>
+        <span class="n">ds_clean</span> <span class="o">=</span> <span class="n">tadasets</span><span class="o">.</span><span class="n">dsphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">dgm_clean</span> <span class="o">=</span> <span class="n">ripser</span><span class="o">.</span><span class="n">ripser</span><span class="p">(</span><span class="n">ds_clean</span><span class="p">)[</span><span class="s1">&#39;dgms&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">tadasets</span><span class="o">.</span><span class="n">dsphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">dgm</span> <span class="o">=</span> <span class="n">ripser</span><span class="o">.</span><span class="n">ripser</span><span class="p">(</span><span class="n">ds</span><span class="p">)[</span><span class="s1">&#39;dgms&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">dists_bottleneck</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">persim</span><span class="o">.</span><span class="n">bottleneck</span><span class="p">(</span><span class="n">dgm_clean</span><span class="p">,</span> <span class="n">dgm</span><span class="p">)))</span>
+        <span class="n">dists_sliced</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">persim</span><span class="o">.</span><span class="n">sliced_wasserstein</span><span class="p">(</span><span class="n">dgm_clean</span><span class="p">,</span> <span class="n">dgm</span><span class="p">)))</span>
+
+<span class="n">dists_sliced</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dists_sliced</span><span class="p">)</span>
+<span class="n">dists_bottleneck</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dists_bottleneck</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dists_bottleneck</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">dists_bottleneck</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Bottleneck&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dists_sliced</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">dists_sliced</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sliced Wasserstein&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Out[19]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.legend.Legend at 0x1186e0240&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_distances_28_1.png" src="../_images/notebooks_distances_28_1.png" />
+</div>
+</div>
+<p>These results are a little strange at first, but remember the raidus for
+the circle is only 0.5 by default, so a noise level of 0.6 implies the
+standard deviation of noise is larger than the radius. The grid of plots
+below shows the resulting matchings. After a certain level of noise, the
+two objects are not directly matched any more.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">331</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="n">ds_clean</span> <span class="o">=</span> <span class="n">tadasets</span><span class="o">.</span><span class="n">dsphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">dgm_clean</span> <span class="o">=</span> <span class="n">ripser</span><span class="o">.</span><span class="n">ripser</span><span class="p">(</span><span class="n">ds_clean</span><span class="p">)[</span><span class="s1">&#39;dgms&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">tadasets</span><span class="o">.</span><span class="n">dsphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">dgm</span> <span class="o">=</span> <span class="n">ripser</span><span class="o">.</span><span class="n">ripser</span><span class="p">(</span><span class="n">ds</span><span class="p">)[</span><span class="s1">&#39;dgms&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">d</span><span class="p">,</span> <span class="p">(</span><span class="n">matching</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">=</span> <span class="n">persim</span><span class="o">.</span><span class="n">bottleneck</span><span class="p">(</span>
+        <span class="n">dgm_clean</span><span class="p">,</span>
+        <span class="n">dgm</span><span class="p">,</span>
+        <span class="n">matching</span><span class="o">=</span><span class="bp">True</span>
+    <span class="p">)</span>
+
+    <span class="n">persim</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bottleneck_matching</span><span class="p">(</span><span class="n">dgm_clean</span><span class="p">,</span> <span class="n">dgm</span><span class="p">,</span> <span class="n">matching</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Clean $H_1$&#39;</span><span class="p">,</span> <span class="s1">&#39;Noisy $H_1$&#39;</span><span class="p">])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Noise:{} Distance:{:.3f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_distances_30_0.png" src="../_images/notebooks_distances_30_0.png" />
 </div>
 </div>
 </div>
@@ -585,9 +676,10 @@ theta with the axis x.</p>
 <li class="toctree-l2"><a class="reference internal" href="#Compute-and-visualize-Bottleneck-distance">Compute and visualize Bottleneck distance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Sliced-Wasserstein-distance">Sliced Wasserstein distance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Heat-Kernel-Distance">Heat Kernel Distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Various-levels-of-noise">Various levels of noise</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -620,7 +712,7 @@ theta with the axis x.</p>
           <a href="Persistence Images.html" title="Previous document">Persistence Images</a>
         </li>
         <li>
-          <a href="../reference.html" title="Next document">API Reference</a>
+          <a href="../reference/index.html" title="Next document">API Reference</a>
           &rarr;
         </li>
     </ul>

@@ -12,6 +12,10 @@ p.caption {
     color: #000000;
 }
 
+.current.reference.internal {
+    font-weight: bold;
+}
+
 #headermeta {
     float:right;
 }
